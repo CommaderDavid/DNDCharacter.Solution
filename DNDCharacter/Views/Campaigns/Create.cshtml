@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+
+@model DNDCharacter.Models.Campaign;
+
+<h1>Add a new Campaign</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("Campaign Name:")
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+    @Html.Label("Campaign Setting:")
+    @Html.TextBoxFor(model => model.Setting)
+    <br>
+    <input type="submit" value="Add new campaign" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all campaigns", "Index")</p>

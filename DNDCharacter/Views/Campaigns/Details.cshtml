@@ -1,0 +1,25 @@
+@{
+    Layout = "_Layout";
+}
+
+@model DNDCharacter.Models.Campaign;
+
+<h1>Campaign Details</h1>
+<hr />
+<h2>Campaign Name: @Html.DisplayFor(model => model.Name)</h2>
+<h3>Campaign Setting: @Html.DisplayFor(model => model.Setting)</h3>
+
+@if (@Model.Characters.Count == 0)
+{
+    <p>There are no characters added to this campaign.</p>
+}
+else
+{
+    <h4>Characters present in the Campaign:</h4>
+    <ul>
+        @foreach (var join in Model.Characters)
+        {
+            <li>@join.Character.CharacterName</li>
+        }
+    </ul>
+}

@@ -6,3 +6,16 @@
 @model List<DNDCharacter.Models.Campaign>;
 
 <h1>Campaigns</h1>
+
+@if (@Model.Count == 0)
+{
+    <h3>No campaigns have been added yet!</h3>
+}
+
+@foreach (Campaign campaign in Model)
+{
+    <li>@Html.ActionLink($"{campaign.Name}", "Details", new { id = campaign.CampaignId })</li>
+}
+
+<h4>@Html.ActionLink("Create new campaign", "Create")</h4>
+<h4>@Html.ActionLink("Home", "Index", "Home")</h4>
