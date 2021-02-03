@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@model DNDCharacter.Models.Character
+
+<h4>Add a new character</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("Character Name:")
+    @Html.TextBoxFor(model => model.CharacterName)
+    <br>
+    @Html.Label("Character Description:")
+    @Html.TextBoxFor(model => model.Description)
+    <br>
+    @Html.Label("Select campaign:")
+    @Html.DropDownList("CampaignId")
+
+    <input type="submit" value="Add new character" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all characters", "Index")</p>

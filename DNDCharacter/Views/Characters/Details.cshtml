@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DNDCharacter.Models.Character
+
+<h2>Character Details</h2>
+<hr />
+<h3>Character Name: @Html.DisplayFor(model => model.CharacterName)</h3>
+<h4>Character Description: @Html.DisplayFor(model => model.Description)</h4>
+
+@if (@Model.Campaigns.Count == 0)
+{
+  <p>This Character does not belong to any campaigns</p>
+}
+else
+{
+  <h4>Campaigns the Character belongs to:</h4>
+  <ul>
+    @foreach(var join in Model.Campaigns)
+    {
+      <li>@join.Campaign.Name</li>
+      @using (Html.BeginForm("DeleteCampaign", "Characters"))
+      {
+        @Html.Hidden("joinId", @join.CampaignCharacterId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Character", "Edit", new { id = Model.CharacterId })</p>
+<p>@Html.ActionLink("Delete Character", "Delete", new { id = Model.CharacterId })</p>
+<p>@Html.ActionLink("Add a Campaign", "AddCampaign", new { id = Model.CharacterId })</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
