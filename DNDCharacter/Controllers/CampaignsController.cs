@@ -7,7 +7,7 @@ using DNDCharacter.Models;
 
 namespace DNDCharacter.Controllers
 {
-    public class CampaignsContoller : Controller
+    public class CampaignsController : Controller
     {
         private readonly DNDCharacterContext _db;
 
