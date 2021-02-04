@@ -18,7 +18,8 @@ namespace DNDCharacter.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            List<Character> model = _db.Characters.ToList();
+            return View(model);
         }
 
         public ActionResult Create()
