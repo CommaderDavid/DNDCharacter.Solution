@@ -21,5 +21,27 @@ namespace DNDCharacter.Controllers
             List<Campaign> model = _db.Campaigns.ToList();
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Campaign campaign)
+        {
+            _db.Campaigns.Add(campaign);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            Campaign thisCampaign = _db.Campaigns
+              .Include(campaign => campaign.Characters)
+                .ThenInclude(join => join.Character)
+              .FirstOrDefault(campaign => campaign.CampaignId == id);
+            return View(thisCampaign);
+        }
     }
 }
