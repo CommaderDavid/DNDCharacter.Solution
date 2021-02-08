@@ -1,0 +1,33 @@
+@{
+    Layout = "_Layout";
+}
+
+@model DNDCharacter.Models.Character
+
+<h2>Edit</h2>
+
+<h4>Edit this Character: @Html.DisplayFor(model => model.CharacterName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CharacterId)
+
+    @Html.Label("Character Name:")
+    @Html.EditorFor(model => model.CharacterName)
+    <br>
+    @Html.Label("Character Description:")
+    @Html.EditorFor(model => model.Description)
+    <br>
+    @Html.Label("Character Class:")
+    @Html.EditorFor(model => model.RPClass)
+    <br>
+    @Html.Label("Character Creator:")
+    @Html.EditorFor(model => model.Player)
+    <br>
+    @Html.Label("Select campaign")
+    @Html.DropDownList("CampaignId")
+    <br>
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
