@@ -66,5 +66,48 @@ namespace DNDCharacter.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            Character thisCharacter = _db.Characters.FirstOrDefault(character => character.CharacterId == id);
+            ViewBag.CampaignId = new SelectList(_db.Campaigns, "CampaignId", "Name");
+            return View(thisCharacter);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Character character, int CampaignId)
+        {
+            if (CampaignId != 0)
+            {
+                _db.CampaignCharacter.Add(new CampaignCharacter() { CampaignId = CampaignId, CharacterId = character.CharacterId });
+            }
+            _db.Entry(character).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Character thisCharacter = _db.Characters.FirstOrDefault(character => character.CharacterId == id);
+            return View(thisCharacter);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Character thisCharacter = _db.Characters.FirstOrDefault(character => character.CharacterId == id);
+            _db.Characters.Remove(thisCharacter);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCampaign(int joinId)
+        {
+            CampaignCharacter joinEntry = _db.CampaignCharacter.FirstOrDefault(entry => entry.CampaignCharacterId == joinId);
+            _db.CampaignCharacter.Remove(joinEntry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

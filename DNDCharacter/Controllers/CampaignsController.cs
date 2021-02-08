@@ -43,5 +43,19 @@ namespace DNDCharacter.Controllers
               .FirstOrDefault(campaign => campaign.CampaignId == id);
             return View(thisCampaign);
         }
+
+        public ActionResult Edit(int id)
+        {
+            Campaign thisCampaign = _db.Campaigns.FirstOrDefault(campaign => campaign.CampaignId == id);
+            return View(thisCampaign);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Campaign campaign)
+        {
+            _db.Entry(campaign).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
