@@ -2,7 +2,7 @@
     Layout = "_Layout";
 }
 
-@model DNDCharacter.Models.Campaign;
+@model DNDCharacter.Models.Campaign
 
 <h1>Campaign Details</h1>
 <hr />
@@ -25,5 +25,6 @@ else
 }
 
 <p>@Html.ActionLink("Back to campaigns", "Index")</p>
+<p>@Html.ActionLink("Edit campaign", "Edit")</p>
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
