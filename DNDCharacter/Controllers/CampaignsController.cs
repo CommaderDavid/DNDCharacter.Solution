@@ -57,5 +57,20 @@ namespace DNDCharacter.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            Campaign thisCampaign = _db.Campaigns.FirstOrDefault(campaign => campaign.CampaignId == id);
+            return View(thisCampaign);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Campaign thisCampaign = _db.Campaigns.FirstOrDefault(campaign => campaign.CampaignId == id);
+            _db.Campaigns.Remove(thisCampaign);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
