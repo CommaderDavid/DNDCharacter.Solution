@@ -16,12 +16,21 @@
 else
 {
     <h4>Characters present in the Campaign:</h4>
-    <ul>
-        @foreach (var join in Model.Characters)
+    @foreach (var join in Model.Characters)
+    {
+        @using (Html.BeginForm())
         {
-            <li>@join.Character.CharacterName</li>
+            @Html.HiddenFor(model => model.ItemId)
+            @Html.HiddenFor(model => model.Description)
+            @Html.Label("Is the Item complete?")
+            @Html.CheckBoxFor(model => model.ItemComplete)
+            <br>
+            <input type="submit" value="Save" />
         }
-    </ul>
+        <ul>
+            <li>@join.Character.CharacterName</li>
+        </ul>
+    }
 }
 
 <p>@Html.ActionLink("Back to campaigns", "Index")</p>

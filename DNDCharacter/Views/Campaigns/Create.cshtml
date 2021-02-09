@@ -14,6 +14,9 @@
     @Html.Label("Campaign Setting:")
     @Html.TextBoxFor(model => model.Setting)
     <br>
+    @Html.Label("Campaign Rule Set:")
+    @Html.TextBoxFor(model => model.Rulebook)
+    <br>
     <input type="submit" value="Add new campaign" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all campaigns", "Index")</p>
