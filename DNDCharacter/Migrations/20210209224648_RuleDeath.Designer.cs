@@ -2,14 +2,16 @@
 using DNDCharacter.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DNDCharacter.Migrations
 {
     [DbContext(typeof(DNDCharacterContext))]
-    partial class DNDCharacterContextModelSnapshot : ModelSnapshot
+    [Migration("20210209224648_RuleDeath")]
+    partial class RuleDeath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
