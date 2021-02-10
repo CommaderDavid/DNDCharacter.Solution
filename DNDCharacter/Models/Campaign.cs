@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 
 namespace DNDCharacter.Models
 {
@@ -9,7 +8,6 @@ namespace DNDCharacter.Models
         public string Name { get; set; }
         public string Setting { get; set; }
         public string Rulebook { get; set; }
-        public bool CharacterDeath { get; set; }
         public virtual ICollection<CampaignCharacter> Characters { get; set; }
 
         public Campaign()

@@ -18,7 +18,7 @@ else
     <h4>Characters present in the Campaign:</h4>
     @foreach (var join in Model.Characters)
     {
-        @using (Html.BeginForm())
+        @* @using (Html.BeginForm())
         {
             @Html.HiddenFor(model => model.ItemId)
             @Html.HiddenFor(model => model.Description)
@@ -26,7 +26,7 @@ else
             @Html.CheckBoxFor(model => model.ItemComplete)
             <br>
             <input type="submit" value="Save" />
-        }
+        } *@
         <ul>
             <li>@join.Character.CharacterName</li>
         </ul>
