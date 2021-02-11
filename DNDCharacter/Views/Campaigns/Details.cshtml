@@ -3,6 +3,7 @@
 }
 
 @model DNDCharacter.Models.Campaign
+@using DNDCharacter.Models
 
 <h1>Campaign Details</h1>
 <hr />
@@ -18,21 +19,24 @@ else
     <h4>Characters present in the Campaign:</h4>
     @foreach (var join in Model.Characters)
     {
-        @* @using (Html.BeginForm())
-        {
-            @Html.HiddenFor(model => model.ItemId)
-            @Html.HiddenFor(model => model.Description)
-            @Html.Label("Is the Item complete?")
-            @Html.CheckBoxFor(model => model.ItemComplete)
-            <br>
-            <input type="submit" value="Save" />
-        } *@
         <ul>
             <li>@join.Character.CharacterName</li>
+            <li>@join.Character.CharacterDeath</li>
         </ul>
+        @using (@Html.BeginForm())
+        {
+            @Html.Hidden("CharacterId", @join.Character.CharacterId.ToString())
+            @Html.Hidden("CharacterName", @join.Character.CharacterName)
+            @Html.Hidden("Description", @join.Character.Description)
+            @Html.Hidden("RPClass", @join.Character.RPClass)
+            @Html.Hidden("Player", @join.Character.Player)
+            @Html.Label("Is the Character Dead?")
+            @Html.CheckBox("CharacterDeath", @join.Character.CharacterDeath)
+            <br>
+            <input type="submit" value="Save" />
+        }
     }
 }
-
 <p>@Html.ActionLink("Back to campaigns", "Index")</p>
 <p>@Html.ActionLink("Edit campaign", "Edit", new { id = Model.CampaignId })</p>
 <p>@Html.ActionLink("Delete Campaign", "Delete", new { id = Model.CampaignId })</p>

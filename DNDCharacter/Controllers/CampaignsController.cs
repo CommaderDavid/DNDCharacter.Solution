@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using DNDCharacter.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace DNDCharacter.Controllers
 {
@@ -38,10 +38,18 @@ namespace DNDCharacter.Controllers
         public ActionResult Details(int id)
         {
             Campaign thisCampaign = _db.Campaigns
-              .Include(campaign => campaign.Characters)
+                .Include(campaign => campaign.Characters)
                 .ThenInclude(join => join.Character)
-              .FirstOrDefault(campaign => campaign.CampaignId == id);
+                .FirstOrDefault(campaign => campaign.CampaignId == id);
             return View(thisCampaign);
+        }
+
+        [HttpPost]
+        public ActionResult Details(Character character)
+        {
+            _db.Entry(character).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Details");
         }
 
         public ActionResult Edit(int id)

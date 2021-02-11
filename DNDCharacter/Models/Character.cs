@@ -10,6 +10,7 @@ namespace DNDCharacter.Models
         public string RPClass { get; set; }
         public string Player { get; set; }
         public virtual ICollection<CampaignCharacter> Campaigns { get; }
+        public virtual bool CharacterDeath { get; }
 
         public Character()
         {
