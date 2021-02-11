@@ -23,17 +23,15 @@ else
             <li>@join.Character.CharacterName</li>
             <li>@join.Character.CharacterDeath</li>
         </ul>
-        @using (@Html.BeginForm())
+        @using (@Html.BeginForm())      // this form would then take the data from CampaignCharacter, not Character
         {
+            @* @Html.Hidden("CampaignCharacterId", @Model.CampaignCharacterId.ToString())
             @Html.Hidden("CharacterId", @join.Character.CharacterId.ToString())
-            @Html.Hidden("CharacterName", @join.Character.CharacterName)
-            @Html.Hidden("Description", @join.Character.Description)
-            @Html.Hidden("RPClass", @join.Character.RPClass)
-            @Html.Hidden("Player", @join.Character.Player)
+            @Html.Hidden("CampaignId", @join.Character.CharacterName)
             @Html.Label("Is the Character Dead?")
             @Html.CheckBox("CharacterDeath", @join.Character.CharacterDeath)
             <br>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Save" /> *@
         }
     }
 }

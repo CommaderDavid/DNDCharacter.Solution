@@ -41,11 +41,20 @@ namespace DNDCharacter.Controllers
                 .Include(campaign => campaign.Characters)
                 .ThenInclude(join => join.Character)
                 .FirstOrDefault(campaign => campaign.CampaignId == id);
+            List<CampaignCharacter> thisDeath = _db.CampaignCharacter
+                .Where(death => death.CampaignId == id).ToList();
+            //  we could use ViewBag to also include a list of CampaignCharacters where campaign.CampaignId == id
+            // ViewBag.Campaign = thisCampaign;
+            ViewBag.JoinTable = thisDeath;
+            for (var i = 0; i < thisDeath.Count; i++)
+            {
+                System.Console.WriteLine(thisCampaign.Characters.ToList()[i].CampaignCharacterId);
+            }
             return View(thisCampaign);
         }
 
         [HttpPost]
-        public ActionResult Details(Character character)
+        public ActionResult Details(Character character)    // This route would then take a CampaignCharacter object to update in the database
         {
             _db.Entry(character).State = EntityState.Modified;
             _db.SaveChanges();
