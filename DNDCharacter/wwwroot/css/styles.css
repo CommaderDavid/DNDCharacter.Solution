@@ -1,0 +1,26 @@
+body {
+    text-align: left;
+    background-color: #ffaa00;
+    margin-left: 9%;
+    margin-top: 2%;
+    position: fixed;
+}
+
+h1 {
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 7ch;
+}
+
+h2 {
+    color: darkred;
+}
+
+h3 {
+    color: dimgray;
+}
+
+li {
+    font-size: 3ch;
+}
+
