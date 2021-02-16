@@ -49,7 +49,7 @@ namespace DNDCharacter.Controllers
             return View(thisCharacter);
         }
 
-        public ActionResult AddCategory(int id)
+        public ActionResult AddCampaign(int id)
         {
             Character thisCharacter = _db.Characters.FirstOrDefault(character => character.CharacterId == id);
             ViewBag.CampaignId = new SelectList(_db.Campaigns, "CampaignId", "Name");
@@ -57,7 +57,7 @@ namespace DNDCharacter.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCategory(Character character, int CampaignId)
+        public ActionResult AddCampaign(Character character, int CampaignId)
         {
             if (CampaignId != 0)
             {
