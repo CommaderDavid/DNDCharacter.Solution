@@ -14,8 +14,9 @@
 
 @foreach (Character character in Model)
 {
-    <li>@Html.ActionLink($"{character.CharacterName}", "Details", new { id = character.CharacterId})</li>
+    <li>@Html.ActionLink($"{character.CharacterName}", "Details", new { id = character.CharacterId}, new { @class =
+            "character" })</li>
 }
 
-<p>@Html.ActionLink("Add new character", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<h4>@Html.ActionLink("Add new character", "Create", null, new { @class = "character" })</h4>
+<h4>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</h4>

@@ -1,6 +1,6 @@
 body {
     text-align: left;
-    background-color: #ffaa00;
+    background-color: rgb(131, 96, 8);
     margin-left: 9%;
     margin-top: 2%;
     position: fixed;
@@ -17,10 +17,25 @@ h2 {
 }
 
 h3 {
-    color: dimgray;
+    color: lightgreen;
 }
 
 li {
     font-size: 3ch;
 }
 
+a.campaign {
+    color: rgb(216, 12, 53);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3ch;
+}
+
+a.character {
+    color: rgb(0, 0, 121);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3ch;
+}
+
+a.home {
+    color: darkslategray;
+}

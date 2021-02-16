@@ -14,8 +14,8 @@
 
 @foreach (Campaign campaign in Model)
 {
-    <li>@Html.ActionLink($"{campaign.Name}", "Details", new { id = campaign.CampaignId })</li>
+    <li>@Html.ActionLink($"{campaign.Name}", "Details", new { id = campaign.CampaignId }, new { @class = "campaign" })</li>
 }
 
-<h4>@Html.ActionLink("Create new campaign", "Create")</h4>
-<h4>@Html.ActionLink("Home", "Index", "Home")</h4>
+<h4>@Html.ActionLink("Create new campaign", "Create", null, new { @class = "campaign" })</h4>
+<h4>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</h4>

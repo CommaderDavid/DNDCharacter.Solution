@@ -29,13 +29,12 @@ else
                 @Html.Hidden("CampaignId", @join.CampaignId)
                 @Html.Hidden("CharacterDeath", !@join.CharacterDeath)
                 <br>
-                <input type="submit" value="Toggle Death" />
+                <input type="submit" value="Toggle Death" class="btn btn-default"/>
             }
         }
     </ul>
 }
-<p>@Html.ActionLink("Back to campaigns", "Index")</p>
+<p>@Html.ActionLink("Back to campaigns", "Index", new { @class = "campaign" })</p>
 <p>@Html.ActionLink("Edit campaign", "Edit", new { id = Model.CampaignId })</p>
 <p>@Html.ActionLink("Delete Campaign", "Delete", new { id = Model.CampaignId })</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Home", "Index", "Home", new { @class = "home" })</p>
