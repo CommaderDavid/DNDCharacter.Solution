@@ -17,23 +17,22 @@
 else
 {
     <h4>Characters present in the Campaign:</h4>
-    @foreach (var join in Model.Characters)
-    {
-        <ul>
-            <li>@join.Character.CharacterName</li>
-            <li>@join.Character.CharacterDeath</li>
-        </ul>
-        @using (@Html.BeginForm())      // this form would then take the data from CampaignCharacter, not Character
+    <ul>
+        @foreach (var join in Model.Characters)
         {
-            @* @Html.Hidden("CampaignCharacterId", @Model.CampaignCharacterId.ToString())
-            @Html.Hidden("CharacterId", @join.Character.CharacterId.ToString())
-            @Html.Hidden("CampaignId", @join.Character.CharacterName)
-            @Html.Label("Is the Character Dead?")
-            @Html.CheckBox("CharacterDeath", @join.Character.CharacterDeath)
-            <br>
-            <input type="submit" value="Save" /> *@
+                <li>@join.Character.CharacterName: Is the character dead? (@join.CharacterDeath)</li>
+                
+            @using (@Html.BeginForm())      // this form would then take the data from CampaignCharacter, not Character
+            {
+                @Html.Hidden("CampaignCharacterId", @join.CampaignCharacterId)
+                @Html.Hidden("CharacterId", @join.CharacterId)
+                @Html.Hidden("CampaignId", @join.CampaignId)
+                @Html.Hidden("CharacterDeath", !@join.CharacterDeath)
+                <br>
+                <input type="submit" value="Toggle Death" />
+            }
         }
-    }
+    </ul>
 }
 <p>@Html.ActionLink("Back to campaigns", "Index")</p>
 <p>@Html.ActionLink("Edit campaign", "Edit", new { id = Model.CampaignId })</p>
