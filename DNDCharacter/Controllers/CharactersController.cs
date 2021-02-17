@@ -75,11 +75,12 @@ namespace DNDCharacter.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Character character, int CampaignId)
+        public ActionResult Edit(Character character, int campaignId)
         {
-            if (CampaignId != 0)
+            bool duplicate = _db.CampaignCharacter.Any(campChar => campChar.CampaignId == campaignId && campChar.CharacterId == character.CharacterId);
+            if (campaignId != 0 && !duplicate)
             {
-                _db.CampaignCharacter.Add(new CampaignCharacter() { CampaignId = CampaignId, CharacterId = character.CharacterId });
+                _db.CampaignCharacter.Add(new CampaignCharacter() { CampaignId = campaignId, CharacterId = character.CharacterId });
             }
             _db.Entry(character).State = EntityState.Modified;
             _db.SaveChanges();
