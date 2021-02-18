@@ -1,9 +1,21 @@
-body {
+.body-main {
     text-align: left;
-    background-color: rgb(131, 96, 8);
+    background-color: rgb(189, 156, 73);
     margin-left: 9%;
     margin-top: 2%;
     position: fixed;
+}
+
+.body--campaign-page {
+    background-image: url("../img/campaign.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.body--character-page {
+    background-image: url("../img/character.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 h1 {
