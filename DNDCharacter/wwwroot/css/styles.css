@@ -1,20 +1,27 @@
+body, html {
+    height: 100%;
+}
+
 .body-main {
     text-align: left;
     background-color: rgb(189, 156, 73);
     margin-left: 9%;
     margin-top: 2%;
-    position: fixed;
 }
 
 .body--campaign-page {
     background-image: url("../img/campaign.jpg");
+    height: 100%;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
 .body--character-page {
     background-image: url("../img/character.jpg");
+    height: 100%;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -32,8 +39,13 @@ h3 {
     color: lightgreen;
 }
 
+h4 {
+    color: green;
+}
+
 li {
     font-size: 3ch;
+    color: green;
 }
 
 a.campaign {
@@ -43,11 +55,13 @@ a.campaign {
 }
 
 a.character {
-    color: rgb(0, 0, 121);
+    color: rgb(5, 5, 184);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3ch;
 }
 
 a.home {
-    color: darkslategray;
+    color: rgb(51, 66, 66);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2ch;
 }

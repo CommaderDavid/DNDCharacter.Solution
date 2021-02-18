@@ -29,8 +29,8 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to characters", "Index", new { @class = "character" })</p>
+<p>@Html.ActionLink("Back to characters", "Index", "Characters", null, new { @class = "character"})</p>
 <p>@Html.ActionLink("Edit Character", "Edit", new { id = Model.CharacterId })</p>
 <p>@Html.ActionLink("Delete Character", "Delete", new { id = Model.CharacterId })</p>
 <p>@Html.ActionLink("Add a Campaign", "AddCampaign", new { id = Model.CharacterId })</p>
-<p>@Html.ActionLink("Home", "Index", "Home", new { @class = "home" })</p>
+<p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</p>
