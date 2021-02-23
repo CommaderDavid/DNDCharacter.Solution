@@ -36,32 +36,37 @@ h2 {
 }
 
 h3 {
-    color: lightgreen;
+    color: rgb(33, 82, 14);
 }
 
 h4 {
-    color: green;
+    color: rgb(6, 61, 6);
 }
 
 li {
     font-size: 3ch;
-    color: green;
+    color: rgb(6, 61, 6);
+}
+
+.label {
+    color: darkmagenta;
+    font-size: 3ch;
 }
 
 a.campaign {
-    color: rgb(216, 12, 53);
+    color: rgb(184, 84, 2);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 3ch;
 }
 
 a.character {
-    color: rgb(5, 5, 184);
+    color: rgb(9, 39, 170);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3ch;
 }
 
 a.home {
-    color: rgb(51, 66, 66);
+    color: rgb(42, 85, 85);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2ch;
+    font-size: 4ch;
 }

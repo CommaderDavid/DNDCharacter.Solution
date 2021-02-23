@@ -4,25 +4,25 @@
 
 @model DNDCharacter.Models.Character
 
-<h4>Add a new character</h4>
+<h1>Add a new character</h1>
 
 @using (Html.BeginForm())
 {
-    @Html.Label("Character Name:")
+    @Html.Label("CharacterName", "Character Name:", new {@class = "label"})
     @Html.TextBoxFor(model => model.CharacterName)
     <br>
-    @Html.Label("Character Description:")
+    @Html.Label("Descripton", "Character Description:", new {@class = "label"})
     @Html.TextBoxFor(model => model.Description)
     <br>
-    @Html.Label("Character Class:")
+    @Html.Label("Class", "Character Class:", new {@class = "label"})
     @Html.DropDownList("RPClass",
-        new SelectList(new string[] {"Undecided", "Barbarian", "Rabbit", "Bard", "Cleric",
-"Druid", "Fighter", "Monk","Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"}))
+        new SelectList(new string[] {"Undecided", "Barbarian", "Bard", "Cleric",
+"Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"}))
     <br>
-    @Html.Label("Player Creator:")
+    @Html.Label("Player", "Player Creator:", new {@class = "label"})
     @Html.TextBoxFor(model => model.Player)
     <br>
-    @Html.Label("Select campaign:")
+    @Html.Label("Campaign", "Select campaign:", new {@class = "label"})
     @Html.DropDownList("CampaignId")
 
     <input type="submit" value="Add new character" class="btn btn-default" />
