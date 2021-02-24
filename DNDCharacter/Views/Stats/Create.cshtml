@@ -1,0 +1,34 @@
+@{
+    Layout = "CharacterLayout";
+}
+
+@model DNDCharacter.Models.Stat
+
+<h1>Add a new Stat sheet:</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("Str", "Character's Strength:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Strength)
+    <br>
+    @Html.Label("Dex", "Character's Dexterity:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Dexterity)
+    <br>
+    @Html.Label("Con", "Character's Constitution:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Constitution)
+    <br>
+    @Html.Label("Int", "Character's Intelligence:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Intelligence)
+    <br>
+    @Html.Label("Wis", "Character's Wisdom:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Wisdom)
+    <br>
+    @Html.Label("Cha", "Character's Charisma:", new {@class = "label"})
+    @Html.TextBoxFor(model => model.Charisma)
+    <br>
+    @Html.Label("Campaign", "Select campaign:", new {@class = "label"})
+    @Html.DropDownList("CharacterId")
+
+    <input type="submit" value="Add new stat sheet" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all characters", "Index", "Characters", null, new { @class = "character"})</p>

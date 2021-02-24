@@ -1,0 +1,19 @@
+@{
+    Layout = "CharacterLayout";
+}
+
+@model DNDCharacter.Models.Stat
+
+<h2>Character Stat Details</h2>
+<hr />
+<h3>Character Name: )</h3>
+<h4>Strength: @Html.DisplayFor(model => model.Strength)</h4>
+<h4>Dexterity: @Html.DisplayFor(model => model.Dexterity)</h4>
+<h4>Constitution: @Html.DisplayFor(model => model.Constitution)</h4>
+<h4>Intelligence: @Html.DisplayFor(model => model.Intelligence)</h4>
+<h4>Wisdom: @Html.DisplayFor(model => model.Wisdom)</h4>
+<h4>Charisma: @Html.DisplayFor(model => model.Charisma)</h4>
+
+
+<p>@Html.ActionLink("Back to characters", "Index", "Characters", null, new { @class = "character"})</p>
+<p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</p>
