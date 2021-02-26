@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace DNDCharacter.Models
 {
     public class Stat
@@ -9,6 +11,11 @@ namespace DNDCharacter.Models
         public int Intelligence { get; set; }
         public int Wisdom { get; set; }
         public int Charisma { get; set; }
-        public virtual CampaignCharacter Character { get; }
+        public virtual ICollection<CampaignCharacter> Character { get; }
+
+        public Stat()
+        {
+            this.Character = new HashSet<CampaignCharacter>();
+        }
     }
 }

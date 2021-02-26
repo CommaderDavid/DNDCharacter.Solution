@@ -8,6 +8,8 @@
 <hr />
 <h3>Character Name: @Html.DisplayFor(model => model.CharacterName)</h3>
 <h4>Character Description: @Html.DisplayFor(model => model.Description)</h4>
+<h4>Character Class: @Html.DisplayFor(model => model.RPClass)</h4>
+<h4>Character Creator: @Html.DisplayFor(model => model.Player)</h4>
 
 @if (@Model.Campaigns.Count == 0)
 {
@@ -19,7 +21,7 @@ else
   <ul>
     @foreach(var join in Model.Campaigns)
     {
-      <li>@join.Campaign.Name</li>
+      <li>@Html.ActionLink(@join.Campaign.Name, "Details", "Stats", new { id = @join.StatId })</li>
       @using (Html.BeginForm("DeleteCampaign", "Characters"))
       {
         @Html.Hidden("joinId", @join.CampaignCharacterId)

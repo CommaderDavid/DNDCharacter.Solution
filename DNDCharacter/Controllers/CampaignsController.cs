@@ -39,7 +39,9 @@ namespace DNDCharacter.Controllers
         {
             Campaign thisCampaign = _db.Campaigns
                 .Include(campaign => campaign.Characters)
-                .ThenInclude(join => join.Character)
+                    .ThenInclude(join => join.Character)
+                .Include(campaign => campaign.Characters)
+                    .ThenInclude(join => join.Stat)
                 .FirstOrDefault(campaign => campaign.CampaignId == id);
             return View(thisCampaign);
         }

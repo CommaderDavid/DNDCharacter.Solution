@@ -9,5 +9,7 @@ namespace DNDCharacter.Models
         public bool CharacterDeath { get; set; }
         public virtual Character Character { get; set; }
         public virtual Campaign Campaign { get; set; }
+        public virtual Stat Stat { get; set; }
+
     }
 }

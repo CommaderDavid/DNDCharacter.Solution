@@ -11,22 +11,22 @@
 @using (Html.BeginForm())
 {
     @Html.Label("Str", "Character's Strength:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Strength)
+    @Html.EditorFor(model => model.Strength)
     <br>
     @Html.Label("Dex", "Character's Dexterity:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Dexterity)
+    @Html.EditorFor(model => model.Dexterity)
     <br>
     @Html.Label("Con", "Character's Constitution:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Constitution)
+    @Html.EditorFor(model => model.Constitution)
     <br>
     @Html.Label("Int", "Character's Intelligence:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Intelligence)
+    @Html.EditorFor(model => model.Intelligence)
     <br>
     @Html.Label("Wis", "Character's Wisdom:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Wisdom)
+    @Html.EditorFor(model => model.Wisdom)
     <br>
     @Html.Label("Cha", "Character's Charisma:", new {@class = "label"})
-    @Html.TextBoxFor(model => model.Charisma)
+    @Html.EditorFor(model => model.Charisma)
     <br>
     @Html.Label("Campaign", "Select campaign:", new {@class = "label"})
     @Html.DropDownList("CharacterId")
