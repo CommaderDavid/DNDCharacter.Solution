@@ -6,7 +6,7 @@
 
 <h2>Character Stat Details</h2>
 <hr />
-@* <h3>Character Name: @Html.DisplayFor(model => model.Character[0].Character.CharacterName)</h3> *@
+<h3>Character Name: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h3>
 <h4>Strength: @Html.DisplayFor(model => model.Strength)</h4>
 <h4>Dexterity: @Html.DisplayFor(model => model.Dexterity)</h4>
 <h4>Constitution: @Html.DisplayFor(model => model.Constitution)</h4>

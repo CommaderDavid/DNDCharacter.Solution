@@ -16,12 +16,24 @@ namespace DNDCharacter.Controllers
             _db = db;
         }
 
+        public ActionResult Create(Stat stat, int CampaignCharacterId)
+        {
+            _db.Stats.Add(stat);
+            if (CampaignCharacterId != 0)
+            {
+
+            }
+            _db.SaveChanges();
+            return RedirectToAction();
+        }
+
         public ActionResult Details(int id)
         {
             Stat thisStat = _db.Stats
               .Include(stat => stat.Character)
               .ThenInclude(join => join.Character)
               .FirstOrDefault(stat => stat.StatId == id);
+
             return View(thisStat);
         }
     }
