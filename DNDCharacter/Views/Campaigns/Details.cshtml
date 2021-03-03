@@ -27,6 +27,7 @@ else
                 @Html.Hidden("CharacterId", @join.CharacterId)
                 @Html.Hidden("CampaignId", @join.CampaignId)
                 @Html.Hidden("CharacterDeath", !@join.CharacterDeath)
+                @Html.Hidden("StatId", @join.StatId)
                 <br>
                 <input type="submit" value="Toggle Death" class="btn btn-default"/>
             }

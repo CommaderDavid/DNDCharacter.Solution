@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using DNDCharacter.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace DNDCharacter.Controllers
@@ -20,42 +20,43 @@ namespace DNDCharacter.Controllers
         public ActionResult Create(CampaignCharacter campaignCharacter)
         {
             // you have the CampaignId, CharacterId, CampaignCharacterId
-            // TEST CODE-----------------------------------------
-            ViewBag.CampCharId = new SelectList(_db.CampaignCharacter, "CampaignCharacterId");
-            System.Console.WriteLine(campaignCharacter.CampaignCharacterId);
-            //TEST CODE-------------------------------------------------
+            ViewBag.CampCharId = campaignCharacter.CampaignCharacterId;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Stat stat, int StatId)
+        public ActionResult Create(Stat stat)
         {
-
-            //TEST CODE--------------------------
-            string testCampCharId = Request.Form["CampCharId"];
-            System.Console.WriteLine(testCampCharId);
-            //--------------------------------------------
+            int CampCharId = System.Int32.Parse(Request.Form["CampCharId"]);
             _db.Stats.Add(stat);
-            // _db.SaveChanges();
+            _db.SaveChanges();
 
             // get the join table row
             // add the stat.StatId to that row's StatId property
 
-            if (StatId != 0)
-            {
-                _db.CampaignCharacter.Add(new CampaignCharacter() { StatId = StatId });
-            }
-            _db.Entry(stat).State = EntityState.Modified;
+            // if (CampCharId != 0)
+            // {
+            //     _db.CampaignCharacter.Add(new CampaignCharacter() { StatId = stat.StatId });
+            // }
+
+            CampaignCharacter thisCampaignCharacter = _db.CampaignCharacter
+                .FirstOrDefault(charCamp => charCamp.CampaignCharacterId == CampCharId);
+
+            thisCampaignCharacter.StatId = stat.StatId;
+
+            System.Console.WriteLine(stat.StatId);
+
+            _db.Entry(thisCampaignCharacter).State = EntityState.Modified;
             _db.SaveChanges();
-            return RedirectToAction();
+            return RedirectToAction("Index", "Characters");
         }
 
         public ActionResult Details(int id)
         {
             Stat thisStat = _db.Stats
-              .Include(stat => stat.Character)
-              .ThenInclude(join => join.Character)
-              .FirstOrDefault(stat => stat.StatId == id);
+                .Include(stat => stat.Character)
+                .ThenInclude(join => join.Character)
+                .FirstOrDefault(stat => stat.StatId == id);
 
             return View(thisStat);
         }

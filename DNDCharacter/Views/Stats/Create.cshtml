@@ -8,12 +8,7 @@
 
 @using (Html.BeginForm())
 {
-    @* @Html.HiddenFor(model => model. )
-        //THIS IS STILL INCOMPLETE
-        @Html.HiddenFor(model => model.CampId) *@
-    //TEST CODE-------------------------------------------------------------------------
     @Html.Hidden("CampCharId", (object)ViewBag.CampCharId)
-    //TEST CODE-------------------------------------------------------------------------
 
     @Html.Label("Str", "Character's Strength:", new {@class = "label"})
     @Html.TextBoxFor(model => model.Strength)
@@ -32,9 +27,6 @@
     <br>
     @Html.Label("Cha", "Character's Charisma:", new {@class = "label"})
     @Html.TextBoxFor(model => model.Charisma)
-    <br>
-    @* @Html.Label("Stat", "Select Character:", new {@class = "label"})
-        @Html.DropDownList("CampCharId") *@
 
     <input type="submit" value="Add new stat sheet" class="btn btn-default" />
 }
