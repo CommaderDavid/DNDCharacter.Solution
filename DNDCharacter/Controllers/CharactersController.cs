@@ -29,15 +29,22 @@ namespace DNDCharacter.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Character character, int CampaignId)
+        public ActionResult Create(Character character, int campaignId)
         {
             _db.Characters.Add(character);
-            if (CampaignId != 0)
+            if (campaignId != 0)
             {
-                _db.CampaignCharacter.Add(new CampaignCharacter() { CampaignId = CampaignId, CharacterId = character.CharacterId });
+                _db.CampaignCharacter.Add(new CampaignCharacter() { CampaignId = campaignId, CharacterId = character.CharacterId });
             }
             _db.SaveChanges();
-            return RedirectToAction("Index");
+
+            // query
+            CampaignCharacter thisCampaignCharacter = _db.CampaignCharacter
+                .FirstOrDefault(charCamp => charCamp.CharacterId == character.CharacterId
+                    && charCamp.CampaignId == campaignId);
+
+            return RedirectToAction("Create", "Stats", thisCampaignCharacter);
+            // StatsController.Create(thisCampaignCharacter);
         }
 
         public ActionResult Details(int id)

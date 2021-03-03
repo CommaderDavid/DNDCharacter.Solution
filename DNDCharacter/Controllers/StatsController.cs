@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using DNDCharacter.Models;
+using Newtonsoft.Json;
 
 namespace DNDCharacter.Controllers
 {
@@ -16,13 +17,35 @@ namespace DNDCharacter.Controllers
             _db = db;
         }
 
-        public ActionResult Create(Stat stat, int CampaignCharacterId)
+        public ActionResult Create(CampaignCharacter campaignCharacter)
         {
-            _db.Stats.Add(stat);
-            if (CampaignCharacterId != 0)
-            {
+            // you have the CampaignId, CharacterId, CampaignCharacterId
+            // TEST CODE-----------------------------------------
+            ViewBag.CampCharId = new SelectList(_db.CampaignCharacter, "CampaignCharacterId");
+            System.Console.WriteLine(campaignCharacter.CampaignCharacterId);
+            //TEST CODE-------------------------------------------------
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Create(Stat stat, int StatId)
+        {
+
+            //TEST CODE--------------------------
+            string testCampCharId = Request.Form["CampCharId"];
+            System.Console.WriteLine(testCampCharId);
+            //--------------------------------------------
+            _db.Stats.Add(stat);
+            // _db.SaveChanges();
+
+            // get the join table row
+            // add the stat.StatId to that row's StatId property
+
+            if (StatId != 0)
+            {
+                _db.CampaignCharacter.Add(new CampaignCharacter() { StatId = StatId });
             }
+            _db.Entry(stat).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction();
         }
