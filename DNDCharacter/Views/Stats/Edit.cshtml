@@ -6,10 +6,12 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this Character: </h4>
+<h4>Edit this Character: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h4>
 
 @using (Html.BeginForm())
 {
+    @Html.Hidden("CampCharId", (object)ViewBag.CampCharId)
+
     @Html.Label("Str", "Character's Strength:", new {@class = "label"})
     @Html.EditorFor(model => model.Strength)
     <br>
@@ -27,9 +29,6 @@
     <br>
     @Html.Label("Cha", "Character's Charisma:", new {@class = "label"})
     @Html.EditorFor(model => model.Charisma)
-    <br>
-    @Html.Label("Campaign", "Select campaign:", new {@class = "label"})
-    @Html.DropDownList("CharacterId")
 
     <input type="submit" value="Save" />
 }

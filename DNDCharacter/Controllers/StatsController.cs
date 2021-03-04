@@ -31,20 +31,10 @@ namespace DNDCharacter.Controllers
             _db.Stats.Add(stat);
             _db.SaveChanges();
 
-            // get the join table row
-            // add the stat.StatId to that row's StatId property
-
-            // if (CampCharId != 0)
-            // {
-            //     _db.CampaignCharacter.Add(new CampaignCharacter() { StatId = stat.StatId });
-            // }
-
             CampaignCharacter thisCampaignCharacter = _db.CampaignCharacter
                 .FirstOrDefault(charCamp => charCamp.CampaignCharacterId == CampCharId);
 
             thisCampaignCharacter.StatId = stat.StatId;
-
-            System.Console.WriteLine(stat.StatId);
 
             _db.Entry(thisCampaignCharacter).State = EntityState.Modified;
             _db.SaveChanges();
@@ -59,6 +49,11 @@ namespace DNDCharacter.Controllers
                 .FirstOrDefault(stat => stat.StatId == id);
 
             return View(thisStat);
+        }
+
+        public ActionResult Edit()
+        {
+
         }
     }
 }
