@@ -34,5 +34,5 @@
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to Details", "Details", "Characters", new {id =
-        Model.Character.ToList()[0].Character.CharacterId})</p>
+<p>@Html.ActionLink("Back to Details", "Details", "Characters", null, new {id =
+        Model.Character.ToList()[0].Character.CharacterId, @class = "character"})</p>
