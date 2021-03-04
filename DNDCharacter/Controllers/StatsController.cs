@@ -51,9 +51,18 @@ namespace DNDCharacter.Controllers
             return View(thisStat);
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
+            Stat thisStat = _db.Stats.FirstOrDefault(stat => stat.StatId == id);
+            return View(thisStat);
+        }
 
+        [HttpPost]
+        public ActionResult Edit(Stat stat)
+        {
+            _db.Entry(stat).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Characters");
         }
     }
 }

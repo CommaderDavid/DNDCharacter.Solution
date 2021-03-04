@@ -6,11 +6,11 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this Character: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h4>
+@* <h4>Edit this Character: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h4> *@
 
 @using (Html.BeginForm())
 {
-    @Html.Hidden("CampCharId", (object)ViewBag.CampCharId)
+    @Html.HiddenFor(model => model.StatId)
 
     @Html.Label("Str", "Character's Strength:", new {@class = "label"})
     @Html.EditorFor(model => model.Strength)
@@ -29,6 +29,7 @@
     <br>
     @Html.Label("Cha", "Character's Charisma:", new {@class = "label"})
     @Html.EditorFor(model => model.Charisma)
+    <br>
 
     <input type="submit" value="Save" />
 }
