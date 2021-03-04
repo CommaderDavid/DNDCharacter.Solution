@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@* <h4>Edit this Character: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h4> *@
+<h4>Edit this Character: @Html.DisplayFor(model => model.Character.ToList()[0].Character.CharacterName)</h4>
 
 @using (Html.BeginForm())
 {
@@ -34,4 +34,5 @@
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to Details", "Details")</p>
+<p>@Html.ActionLink("Back to Details", "Details", "Characters", new {id =
+        Model.Character.ToList()[0].Character.CharacterId})</p>

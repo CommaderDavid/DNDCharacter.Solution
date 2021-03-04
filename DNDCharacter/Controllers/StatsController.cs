@@ -53,7 +53,10 @@ namespace DNDCharacter.Controllers
 
         public ActionResult Edit(int id)
         {
-            Stat thisStat = _db.Stats.FirstOrDefault(stat => stat.StatId == id);
+            Stat thisStat = _db.Stats
+                .Include(stat => stat.Character)
+                .ThenInclude(join => join.Character)
+                .FirstOrDefault(stat => stat.StatId == id);
             return View(thisStat);
         }
 
