@@ -12,11 +12,14 @@
 {
     @Html.HiddenFor(model => model.CampaignId)
 
-    @Html.Label("Campaign Name:")
+    @Html.Label("Name", "Campaign Name:", new {@class = "label"})
     @Html.EditorFor(model => model.Name)
     <br>
-    @Html.Label("Campaign Settings:")
+    @Html.Label("Setting", "Campaign Settings:", new {@class = "label"})
     @Html.EditorFor(model => model.Setting)
+    <br>
+    @Html.Label("Rule", "Campaign Rule Set:", new {@class = "label"})
+    @Html.EditorFor(model => model.Rulebook)
     <br>
     <input type="submit" value="Save" />
 }

@@ -12,7 +12,7 @@
 {
     @Html.HiddenFor(model => model.CharacterId)
 
-    @Html.Label("Select campaign")
+    @Html.Label("Select", "Select campaign", new {@class = "label"})
     @Html.DropDownList("CampaignId")
 
     <input type="submit" value="Save" />
