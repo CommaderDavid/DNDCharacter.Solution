@@ -32,7 +32,7 @@ else
 }
 
 <p>@Html.ActionLink("Back to characters", "Index", "Characters", null, new { @class = "character"})</p>
-<p>@Html.ActionLink("Edit Character", "Edit", "Characters", null, new { id = Model.CharacterId, @class = "character" })</p>
-<p>@Html.ActionLink("Delete Character", "Delete", "Characters", null, new { id = Model.CharacterId, @class = "character" })</p>
-<p>@Html.ActionLink("Add a Campaign", "AddCampaign", "Characters", null, new { id = Model.CharacterId, @class = "character" })</p>
+<p>@Html.ActionLink("Edit Character", "Edit", "Characters", new { id = Model.CharacterId }, new { @class = "character" })</p>
+<p>@Html.ActionLink("Delete Character", "Delete", "Characters", new { id = Model.CharacterId }, new { @class = "character" })</p>
+<p>@Html.ActionLink("Add a Campaign", "AddCampaign", "Characters", new { id = Model.CharacterId }, new { @class = "character"})</p>
 <p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</p>

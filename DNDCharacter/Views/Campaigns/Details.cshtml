@@ -35,6 +35,6 @@ else
     </ul>
 }
 <p>@Html.ActionLink("Back to campaigns", "Index", "Campaigns", null, new { @class = "campaign"})</p>
-<p>@Html.ActionLink("Edit campaign", "Edit", new { id = Model.CampaignId, @class = "campaign" })</p>
-<p>@Html.ActionLink("Delete Campaign", "Delete", new { id = Model.CampaignId, @class = "campaign" })</p>
+<p>@Html.ActionLink("Edit campaign", "Edit", new { id = Model.CampaignId }, new { @class = "campaign" })</p>
+<p>@Html.ActionLink("Delete Campaign", "Delete", new { id = Model.CampaignId }, new { @class = "campaign" })</p>
 <p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "home" })</p>
