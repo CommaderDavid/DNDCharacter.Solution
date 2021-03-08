@@ -19,7 +19,9 @@
     @Html.EditorFor(model => model.Description)
     <br>
     @Html.Label("Class", "Character Class:", new {@class = "label"})
-    @Html.EditorFor(model => model.RPClass)
+    @Html.DropDownList("RPClass",
+        new SelectList(new string[] {"Undecided", "Barbarian", "Bard", "Cleric",
+"Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"}))
     <br>
     @Html.Label("Creator", "Character Creator:", new {@class = "label"})
     @Html.EditorFor(model => model.Player)
